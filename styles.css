@@ -121,4 +121,5 @@ a:hover {
 #user-email {
     color: white;
     font-size: 0.9em;
+    cursor: pointer;
 } 

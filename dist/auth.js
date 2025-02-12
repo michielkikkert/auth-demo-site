@@ -1210,7 +1210,7 @@
 
   // auth.ts
   var authClient = createAuthClient({
-    baseURL: "http://localhost:5757/auth"
+    baseURL: "http://www.cloudworkers.dev/auth"
   });
   document.addEventListener("DOMContentLoaded", async () => {
     const userEmailElement = document.getElementById("user-email");
@@ -1221,13 +1221,22 @@
     }
     try {
       const session = await authClient.getSession();
+      console.log({ session });
       if (session && session.data) {
         console.log(session.data);
         userEmailElement.textContent = session.data.user.email;
+        userEmailElement.title = "Sign out";
         userIconElement.className = "fas fa-user";
+        userEmailElement.onclick = async () => {
+          await authClient.signOut();
+          document.location.reload();
+        };
       } else {
-        userEmailElement.textContent = "";
+        userEmailElement.textContent = "Click to sign in";
         userIconElement.className = "fas fa-user-circle";
+        userEmailElement.onclick = () => {
+          document.location = `/auth/front/signin?returnUrl=${window.location.href}`;
+        };
       }
     } catch (error) {
       console.error("Error checking authentication status:", error);

@@ -1210,7 +1210,7 @@
 
   // auth.ts
   var authClient = createAuthClient({
-    baseURL: "/auth"
+    baseURL: "https://www.cloudworkers.dev/auth"
   });
   document.addEventListener("DOMContentLoaded", async () => {
     const userEmailElement = document.getElementById("user-email");

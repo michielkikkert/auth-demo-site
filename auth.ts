@@ -1,7 +1,7 @@
 import { createAuthClient } from 'better-auth/client';
 
 const authClient = createAuthClient({
-    baseURL: '/auth',
+    baseURL: 'https://www.cloudworkers.dev/auth',
 });
 
 document.addEventListener('DOMContentLoaded', async () => {

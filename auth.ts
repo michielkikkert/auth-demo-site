@@ -1,7 +1,7 @@
 import { createAuthClient } from 'better-auth/client';
 
 const authClient = createAuthClient({
-    baseURL: 'http://www.cloudworkers.dev/auth',
+    baseURL: '/auth',
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -14,15 +14,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
+        // @ts-ignore - unfortunately, the types from better-auth seem incorrect.
         const session = await authClient.getSession();
-        console.log({session});
-        
+
         if (session && session.data) {
             console.log(session.data);
             userEmailElement.textContent = session.data.user.email;
             userEmailElement.title = 'Sign out';
             userIconElement.className = 'fas fa-user'; // Change to filled user icon when logged in
             userEmailElement.onclick = async () => {
+                // @ts-ignore
                 await authClient.signOut();
                 document.location.reload();
             }

@@ -18,12 +18,15 @@ body {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    gap: 1rem;
 }
 
 .nav-brand {
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
+    margin-right: auto;
 }
 
 .nav-links {
@@ -106,7 +109,7 @@ a:hover {
 }
 
 #user-account {
-    margin-right: 20px;
+    margin-left: auto;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -122,4 +125,74 @@ a:hover {
     color: white;
     font-size: 0.9em;
     cursor: pointer;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 100;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 2px 0;
+    transition: 0.4s;
+}
+
+@media (max-width: 800px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .nav-brand {
+        order: 1;
+        flex: 1;
+        margin-right: 0;
+    }
+
+    #user-account {
+        order: 2;
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    .hamburger {
+        order: 3;
+        display: flex;
+    }
+
+    .nav-links {
+        order: 4;
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background-color: #2c3e50;
+        width: 100%;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li:not(#user-account) {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+    }
+
+    #user-account {
+        display: flex;
+        position: static;
+    }
 } 

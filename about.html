@@ -10,6 +10,11 @@
 <body>
     <nav class="navbar">
         <div class="nav-brand">Worker Auth Demo</div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <ul class="nav-links">
             <li id="user-account">
                 <i class="fas fa-user-circle"></i>
@@ -33,5 +38,10 @@
         <p>For more information about this demo, please contact us at: <a href="mailto:demo@example.com">demo@example.com</a></p>
     </main>
     <script src="dist/auth.js"></script>
+    <script>
+    document.querySelector('.hamburger').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+    </script>
 </body>
 </html> 

@@ -10,11 +10,16 @@
 <body>
     <nav class="navbar">
         <div class="nav-brand">Worker Auth Demo</div>
+        <div id="user-account">
+            <i class="fas fa-user-circle"></i>
+            <span id="user-email"></span>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <ul class="nav-links">
-            <li id="user-account">
-                <i class="fas fa-user-circle"></i>
-                <span id="user-email"></span>
-            </li>
             <li><a href="/" class="active">Home</a></li>
             <li><a href="dashboard.html">Dashboard <i class="fas fa-lock"></i></a></li>
             <li><a href="about.html">About</a></li>
@@ -31,5 +36,10 @@
         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
     </main>
     <script src="dist/auth.js"></script>
+    <script>
+    document.querySelector('.hamburger').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+    </script>
 </body>
 </html> 

@@ -1210,7 +1210,7 @@
 
   // auth.ts
   var authClient = createAuthClient({
-    baseURL: new URL(document.location.hostname) + "/auth"
+    baseURL: new URL(document.location.href).origin + "/auth"
   });
   document.addEventListener("DOMContentLoaded", async () => {
     const userEmailElement = document.getElementById("user-email");

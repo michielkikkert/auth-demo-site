@@ -1,7 +1,7 @@
 import { createAuthClient } from 'better-auth/client';
 
 const authClient = createAuthClient({
-    baseURL: new URL(document.location.hostname) + '/auth',
+    baseURL: new URL(document.location.href).origin + '/auth',
 });
 
 document.addEventListener('DOMContentLoaded', async () => {

@@ -1210,7 +1210,7 @@
 
   // auth.ts
   var authClient = createAuthClient({
-    baseURL: "http://localhost:5757/auth"
+    baseURL: "/auth"
   });
   document.addEventListener("DOMContentLoaded", async () => {
     const userEmailElement = document.getElementById("user-email");
@@ -1221,8 +1221,6 @@
     }
     try {
       const session = await authClient.getSession();
-      const { data, error } = authClient.useSession();
-      console.log(data);
       if (session && session.data) {
         console.log(session.data);
         userEmailElement.textContent = session.data.user.email;
